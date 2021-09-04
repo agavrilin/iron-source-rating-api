@@ -1,0 +1,31 @@
+version: '3'
+services:
+  iron-source-rating-api:
+    build:
+      context: .
+    volumes:
+      - .:/app
+      - /app/node_modules/
+    ports:
+      - "3000:3000"
+    environment:
+      DB_PORT: 3306
+      DB_NAME: iron_source_rating_dev
+      DB_PASSWORD: super-secure
+      DB_USER: root
+      DB_HOST: db
+
+    links:
+      - db
+
+  db:
+    image: mariadb:10.5.8
+    ports:
+      - 3306:3306
+    volumes:
+    - ./files :/tmp/files
+    - ./:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: iron_source_rating_dev
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: super-secure

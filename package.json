@@ -1,0 +1,30 @@
+{
+  "name": "iron-source-rating-api",
+  "version": "0.0.1",
+  "main": "server.js",
+  "repository": "git@github.com:agavrilin/iron-source-rating-api.git",
+  "author": "Artyom Gavrilin",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "dev:migrations": "NODE_ENV=development npx sequelize-cli db:migrate",
+    "dev:migrations:undo": "NODE_ENV=development npx sequelize-cli db:migrate:undo",
+    "dev:migrations:undo:all": "NODE_ENV=development npx sequelize-cli db:migrate:undo:all",
+    "dev:seeds": "NODE_ENV=development npx sequelize-cli db:seed:all",
+    "dev:seeds:undo": "NODE_ENV=development npx sequelize-cli db:seed:undo",
+    "dev:seeds:undo:all": "NODE_ENV=development npx sequelize-cli db:seed:undo:all"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "mysql2": "2.3.0",
+    "sequelize": "6.6.5"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.24.2",
+    "nodemon": "2.0.12",
+    "sequelize-cli": "6.2.0"
+  }
+}
