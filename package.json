@@ -15,6 +15,7 @@
     "dev:seeds:undo:all": "NODE_ENV=development npx sequelize-cli db:seed:undo:all"
   },
   "dependencies": {
+    "body-parser": "1.19.0",
     "cors": "2.8.5",
     "express": "4.17.1",
     "mysql2": "2.3.0",

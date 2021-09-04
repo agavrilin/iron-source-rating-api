@@ -1,4 +1,5 @@
 const BusinessError = require('./business-error');
+const EntityNotFoundError = require('./entity-not-found-error');
 const ValidationError = require('./validation-error');
 
 module.exports = (err, req, res) => {
@@ -18,4 +19,14 @@ module.exports = (err, req, res) => {
       },
     });
   }
+
+  if (err instanceof EntityNotFoundError) {
+    res.status(404).json({
+      error: {
+        message: err.message,
+      },
+    });
+  }
+
+  res.status(500);
 };
